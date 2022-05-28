@@ -235,6 +235,7 @@ class Analyzer implements AnalyzerInterface
 
         // #6.2.6
         if ($this->strategy->isRequestAllHeadersSupported($lcRequestHeaders) === false) {
+            $this->logInfo('Request headers not supported', ['headers' => $lcRequestHeaders]);
             return $this->createResult(AnalysisResultInterface::ERR_HEADERS_NOT_SUPPORTED);
         }
 
